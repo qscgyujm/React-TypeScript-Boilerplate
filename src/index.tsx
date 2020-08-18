@@ -8,7 +8,8 @@ import createSagaMiddleware from 'redux-saga';
 
 import { rootReducer, rootSaga } from './redux';
 
-import App from './page/App';
+// import App from './page/App';
+import App from '@Page/App';
 
 const sagaMiddleware = createSagaMiddleware();
 

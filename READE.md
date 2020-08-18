@@ -1,38 +1,13 @@
-# Initial Project
+# React Boilerplate
 
-```
+- react * Redux Saga * styled-component
 
-# webpack 
+- webpack * babel
 
-yarn add webpack webpack-cli
+## Issue
+- eslint has issue ( v7.6)
 
-## webpack plugin
-
-yarn add html-webpack-plugin
-
-### dev-server
-
-yarn add webpack-dev-server
-
-# babel 
-
-yarn add @babel/core babel-loader @babel/preset-env @babel/preset-react
-yarn add @babel/plugin-transform-runtime
-
-# eslint
-
-yarn add eslint --dev
-
-# react 
-
-yarn add react react-dom
-
-# redux
-
-yarn add redux react-redux redux-saga
-
-# API Request
-
-yarn add axios
-
-```
+## Todo
+- Add eslint
+(old version is working)>
+- turn to typesciprt

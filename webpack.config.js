@@ -7,7 +7,7 @@ const htmlPlugin = new HtmlWebPackPlugin({
 });
 
 module.exports = {
-  entry: './src/index.js', // 進入點
+  entry: './src/index.tsx', // 進入點
   output: { // 輸出位置
     path: path.join(__dirname, 'dist'),
     // publicPath: '/dist/',
@@ -16,17 +16,33 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        test: /\.(ts|tsx)$/,
+        loader: 'awesome-typescript-loader',
       },
+      {
+        enforce: 'pre',
+        test: /\.js$/,
+        loader: 'source-map-loader',
+      },
+      //  .jsx use
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //   },
+      // },
     ],
   },
   plugins: [htmlPlugin],
   resolve: {
-    extensions: ['*', '.js', '.jsx'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {
+      '@Component': path.resolve(__dirname, './src/Component/'),
+      '@Helpers': path.resolve(__dirname, './src/helpers/'),
+      '@Page': path.resolve(__dirname, './src/page/'),
+      '@Redux': path.resolve(__dirname, './src/redux/'),
+    },
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist'), // 網站內容從哪來，預設會使用 '/'

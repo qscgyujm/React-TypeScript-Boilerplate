@@ -14,12 +14,11 @@ const apiRoot = axios.create({
 });
 export const getTestApi = () => apiRoot.get('/search/anime?q=naruto');
 
-
 // State
 const initialState = {
   isError: false,
   isFetching: false,
-  dataList: null
+  dataList: null,
 };
 
 //  Action
@@ -32,18 +31,21 @@ const ActionType = {
 export const action = {
   fetchVerifyToken: () => ({ type: ActionType.FETCH_VERIFY_TOKEN_REQUEST }),
   fetchVerifyTokenFailure: () => ({ type: ActionType.FETCH_VERIFY_TOKEN_FAILURE }),
-  fetchVerifyTokenSuccess: (res) => ({ type: ActionType.FETCH_VERIFY_TOKEN_SUCCESS, dataList:res }),
+  fetchVerifyTokenSuccess: (res) => ({
+    type: ActionType.FETCH_VERIFY_TOKEN_SUCCESS,
+    dataList: res,
+  }),
 };
 
 // Saga
 
 function* fetchVerifySaga() {
   try {
-    console.log('a')
+    console.log('a');
 
     const { data } = yield call(getTestApi);
-    console.log('data', data)
-    const { results } = data
+    console.log('data', data);
+    const { results } = data;
 
     yield put(action.fetchVerifyTokenSuccess(results));
   } catch (error) {
