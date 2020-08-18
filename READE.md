@@ -4,10 +4,20 @@
 
 - webpack * babel
 
-## Issue
-- eslint has issue ( v7.6)
 
-## Todo
-- Add eslint
-(old version is working)>
-- turn to typesciprt
+## Folder structure
+```
+.
+├── README.md
+├── src                # Front
+│   ├── Component
+│   ├── helpers
+│   ├── page
+│   ├── redux
+│   ├── index.html
+│   └── index.tsx
+├── .babelrc     
+├── package.json        
+├── tsconfig.json       
+└── yarn.lock
+```

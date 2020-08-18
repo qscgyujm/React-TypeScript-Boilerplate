@@ -1,14 +1,13 @@
-/* eslint-disable */
-
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
-import { rootReducer, rootSaga } from './redux';
+import { rootReducer, rootSaga } from '@Redux/index';
 
-// import App from './page/App';
+import GlobalStyle from '@Style/global';
+
 import App from '@Page/App';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -21,7 +20,9 @@ const store = createStore(
 sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
-<Provider store={store}>
-  <App />
-</Provider>,
-document.getElementById('root'));
+  <Provider store={store}>
+    <GlobalStyle />
+    <App />
+  </Provider>,
+  document.getElementById('root'),
+);

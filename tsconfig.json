@@ -16,7 +16,8 @@
       "@Component/*": ["src/Component/*"],
       "@Helpers/*": ["src/helpers/*"],
       "@Page/*": ["src/page/*"],
-      "@Redux/*": ["src/redux/*"]
+      "@Redux/*": ["src/redux/*"],
+      "@Style/*": ["src/styles/*"],
     },
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */

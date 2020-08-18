@@ -1,9 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const HomeWrapper = styled.div`
+  color: #ccF;
+`;
 
 const Home = () => (
-  <div>
+  <HomeWrapper>
     Home
-  </div>
+  </HomeWrapper>
 );
 
 export default Home;

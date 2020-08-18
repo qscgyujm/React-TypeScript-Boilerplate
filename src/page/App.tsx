@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -7,9 +8,9 @@ import Home from '@Component/Home';
 import compose from '@Helpers/compose';
 import { action } from '@Redux/index';
 
-// import compose from '../helpers/compose';
-
-// import Home from '../component/Home';
+const AppWrapper = styled.div`
+  color: #F77;
+`;
 
 const App = (props) => {
   console.log('app props', props);
@@ -21,10 +22,10 @@ const App = (props) => {
   }, []);
 
   return (
-    <div>
+    <AppWrapper>
       Typescript App
       <Home />
-    </div>
+    </AppWrapper>
   );
 };
 

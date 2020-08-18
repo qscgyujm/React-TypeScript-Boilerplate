@@ -42,6 +42,7 @@ module.exports = {
       '@Helpers': path.resolve(__dirname, './src/helpers/'),
       '@Page': path.resolve(__dirname, './src/page/'),
       '@Redux': path.resolve(__dirname, './src/redux/'),
+      '@Style': path.resolve(__dirname, './src/styles/'),
     },
   },
   devServer: {
