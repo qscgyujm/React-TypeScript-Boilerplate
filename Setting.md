@@ -47,4 +47,8 @@ yarn add awesome-typescript-loader source-map-loader
 
 yarn add redux react-redux @types/redux @types/react-redux
 
+# ESLint - Typescript 
+
+yarn add -D typescript @typescript-eslint/parser
+
 ```

@@ -11,6 +11,10 @@
 ├── README.md
 ├── src                # Front
 │   ├── Component
+│   │   └── Component_Name
+│   │      ├── ts
+│   │      ├── view
+│   │      └── index.tsx
 │   ├── helpers
 │   ├── page
 │   ├── redux

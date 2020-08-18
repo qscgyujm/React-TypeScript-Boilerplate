@@ -6,7 +6,6 @@ import {
   call,
 } from 'redux-saga/effects';
 import { combineReducers } from 'redux';
-
 import axios from 'axios';
 
 const apiRoot = axios.create({
@@ -18,28 +17,30 @@ export const getTestApi = () => apiRoot.get('/search/anime?q=naruto');
 const initialState = {
   isError: false,
   isFetching: false,
-  dataList: null,
+  dataList: [],
 };
+
+type InitialState = Readonly<typeof initialState>
 
 //  Action
-const ActionType = {
-  FETCH_VERIFY_TOKEN_REQUEST: 'FETCH_VERIFY_TOKEN_REQUEST',
-  FETCH_VERIFY_TOKEN_FAILURE: 'FETCH_VERIFY_TOKEN_FAILURE',
-  FETCH_VERIFY_TOKEN_SUCCESS: 'FETCH_VERIFY_TOKEN_SUCCESS',
-};
+export enum ActionType {
+  FETCH_API_REQUEST= 'FETCH_API_REQUEST',
+  FETCH_API_FAILURE= 'FETCH_API_FAILURE',
+  FETCH_API_SUCCESS= 'FETCH_API_SUCCESS',
+}
 
 export const action = {
-  fetchVerifyToken: () => ({ type: ActionType.FETCH_VERIFY_TOKEN_REQUEST }),
-  fetchVerifyTokenFailure: () => ({ type: ActionType.FETCH_VERIFY_TOKEN_FAILURE }),
-  fetchVerifyTokenSuccess: (res) => ({
-    type: ActionType.FETCH_VERIFY_TOKEN_SUCCESS,
+  fetchAPI: () => ({ type: ActionType.FETCH_API_REQUEST }),
+  fetchAPIFailure: () => ({ type: ActionType.FETCH_API_FAILURE }),
+  fetchAPISuccess: (res) => ({
+    type: ActionType.FETCH_API_SUCCESS,
     dataList: res,
   }),
 };
 
 // Saga
 
-function* fetchVerifySaga() {
+function* fetchAPISaga() {
   try {
     console.log('a');
 
@@ -47,32 +48,32 @@ function* fetchVerifySaga() {
     console.log('data', data);
     const { results } = data;
 
-    yield put(action.fetchVerifyTokenSuccess(results));
+    yield put(action.fetchAPISuccess(results));
   } catch (error) {
-    yield put(action.fetchVerifyTokenFailure());
+    yield put(action.fetchAPIFailure());
   }
 }
 
 export const saga = [
-  takeLatest(ActionType.FETCH_VERIFY_TOKEN_REQUEST, fetchVerifySaga),
+  takeLatest(ActionType.FETCH_API_REQUEST, fetchAPISaga),
 ];
 
 // Reducer
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ActionType.FETCH_VERIFY_TOKEN_REQUEST:
+    case ActionType.FETCH_API_REQUEST:
       return {
         ...state,
         isFetching: true,
       };
-    case ActionType.FETCH_VERIFY_TOKEN_FAILURE:
+    case ActionType.FETCH_API_FAILURE:
       return {
         ...state,
         isFetching: false,
         isError: true,
       };
-    case ActionType.FETCH_VERIFY_TOKEN_SUCCESS:
+    case ActionType.FETCH_API_SUCCESS:
       return {
         ...state,
         isFetching: false,
