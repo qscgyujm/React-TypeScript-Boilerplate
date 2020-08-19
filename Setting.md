@@ -50,5 +50,11 @@ yarn add redux react-redux @types/redux @types/react-redux
 # ESLint - Typescript 
 
 yarn add -D typescript @typescript-eslint/parser
+yarn add -D @typescript-eslint/eslint-plugin
+
+# Utility Package
+
+## lodash
+yarn add lodash-es @types/lodash-es
 
 ```

@@ -4,6 +4,11 @@
 
 - webpack * babel
 
+## Run dev env
+```bash
+yarn
+yarn dev
+```
 
 ## Folder structure
 ```

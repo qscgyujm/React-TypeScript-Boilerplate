@@ -13,6 +13,7 @@ module.exports = {
   },
   extends: [
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
     'airbnb',
   ],
   globals: {
@@ -41,6 +42,7 @@ module.exports = {
         tsx: 'never',
       },
     ],
+    'react/jsx-props-no-spreading': 'off',
     'react/jsx-filename-extension': [
       'error',
       {
@@ -50,5 +52,16 @@ module.exports = {
         ],
       },
     ],
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/ban-types': 'error',
   },
+  overrides: [
+    {
+      // enable the rule specifically for TypeScript files
+      files: ['*.ts', '*.tsx'],
+      rules: {
+        '@typescript-eslint/explicit-module-boundary-types': ['off'],
+      },
+    },
+  ],
 };

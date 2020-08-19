@@ -18,6 +18,7 @@
       "@Page/*": ["src/page/*"],
       "@Redux/*": ["src/redux/*"],
       "@Style/*": ["src/styles/*"],
+      "@Hoc/*": ["src/hoc/*"],
     },
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */
