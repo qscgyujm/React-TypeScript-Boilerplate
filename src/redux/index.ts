@@ -1,4 +1,5 @@
 /* eslint no-shadow: "off" */
+
 import {
   takeLatest,
   put,
@@ -6,12 +7,8 @@ import {
   call,
 } from 'redux-saga/effects';
 import { combineReducers } from 'redux';
-import axios from 'axios';
 
-const apiRoot = axios.create({
-  baseURL: 'https://api.jikan.moe/v3',
-});
-export const getTestApi = () => apiRoot.get('/search/anime?q=naruto');
+import { getFetchAPI } from '@Api/index';
 
 // State
 const initialState = {
@@ -44,7 +41,7 @@ function* fetchAPISaga() {
   try {
     console.log('a');
 
-    const { data } = yield call(getTestApi);
+    const { data } = yield call(getFetchAPI);
     console.log('data', data);
     const { results } = data;
 
@@ -53,7 +50,6 @@ function* fetchAPISaga() {
     yield put(action.fetchAPIFailure());
   }
 }
-
 export const saga = [
   takeLatest(ActionType.FETCH_API_REQUEST, fetchAPISaga),
 ];

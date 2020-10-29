@@ -44,6 +44,7 @@ module.exports = {
       '@Redux': path.resolve(__dirname, './src/redux/'),
       '@Style': path.resolve(__dirname, './src/styles/'),
       '@Hoc': path.resolve(__dirname, './src/hoc/'),
+      '@Api': path.resolve(__dirname, './src/api/'),
     },
   },
   devServer: {

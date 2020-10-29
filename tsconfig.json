@@ -19,6 +19,7 @@
       "@Redux/*": ["src/redux/*"],
       "@Style/*": ["src/styles/*"],
       "@Hoc/*": ["src/hoc/*"],
+      "@Api/*": ["src/api/*"],
     },
     /* Basic Options */
     // "incremental": true,                   /* Enable incremental compilation */
