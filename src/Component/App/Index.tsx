@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 
-import compose from '@Helpers/compose';
+import { compose } from '@Helpers/index';
 
 import Home from '@Component/App/view/Home';
 
